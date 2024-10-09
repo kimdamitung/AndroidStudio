@@ -5,11 +5,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".MainActivityIntent"
     android:orientation="vertical">
     <Button
-        android:id="@+id/btnMain"
+        android:id="@+id/btnIntent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Activity 2"/>
+        android:text="Activity 1"/>
 </LinearLayout>

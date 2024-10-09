@@ -1,5 +1,92 @@
 # Android Studio giáo trình học
 
+## Intent
+
+- Tạo Activity mới khi tạo sẽ kèm theo một xml và java
+
+![1728438181908](image/README/1728438181908.png)
+
+activity_main.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/btnMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity 2"/>
+</LinearLayout>
+```
+
+MainActivity.java
+```java
+public class MainActivity extends AppCompatActivity {
+    Button btnActivity;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        btnActivity = findViewById(R.id.btnMain);
+        btnActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivityIntent.class);
+                startActivity(intent);
+            }
+        });
+    }
+}
+```
+
+activity_main_intent.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivityIntent"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/btnIntent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity 1"/>
+</LinearLayout>
+```
+
+MainActivityIntent.java
+```java
+public class MainActivityIntent extends AppCompatActivity {
+    Button btnMain;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main_intent);
+        btnMain = findViewById(R.id.btnIntent);
+        btnMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+}
+```
+
+Chương 2 02 để kham khảo thêm
+
 ## ImageView - ImageButton
 
 ![1727952282956](image/AndroidStudio/1727952282956.png)
